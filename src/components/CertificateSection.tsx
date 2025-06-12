@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { Element } from 'react-scroll';
-import { FileText } from './icons';
+import { FileText } from './icon';
 import CertificateSlider from './CertificateSlider';
 
 interface CertificateSectionProps {

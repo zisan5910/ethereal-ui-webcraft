@@ -4,7 +4,14 @@ import { ArrowDown, Download, Mail, Phone, MapPin } from 'lucide-react';
 
 interface HeroProps {
   language: 'en' | 'bn';
-  content: any;
+  content: {
+    [key: string]: {
+      name: string;
+      role: string;
+      statement?: string;
+      downloadCV?: string;
+    };
+  };
   scrollToSection: (section: string) => void;
 }
 
@@ -42,7 +49,7 @@ const Hero = ({ language, content, scrollToSection }: HeroProps) => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-xl md:text-2xl text-gray-700 mb-8"
             >
-              {content[language].title}
+              {content[language].role}
             </motion.p>
 
             <motion.div

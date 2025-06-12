@@ -15,7 +15,7 @@ import About from './components/About';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
-import installPWA from './components/installPWA';
+import InstallPWA from './components/installPWA';
 import { content, certificates } from './data/content';
 
 function App() {
@@ -76,12 +76,12 @@ function App() {
         setLanguage={setLanguage}
       />
 
-      {/* installPWA component usage would go here */}
+      <InstallPWA language={language} />
 
       <Element name="profile">
         <Hero
           language={language}
-          content={content as any}
+          content={content}
           scrollToSection={scrollToSection}
         />
       </Element>
