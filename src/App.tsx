@@ -5,17 +5,17 @@ import { UserCircle, School, BookOpen, Briefcase, FileBadge, Code, HeartHandshak
 
 // Import components
 import Navigation from './components/Navigation';
-import FloatingMenu from './components/FloatingMenu';
-import ProfileSection from './components/ProfileSection';
+import GhostAl from './components/GhostAl';
+import Hero from './components/Hero';
 import CertificateSection from './components/CertificateSection';
 import Courses from './components/Courses';
-import Skill from './components/Skill';
+import Skills from './components/Skills';
 import Contact from './components/Contact';
-import Information from './components/Information';
+import About from './components/About';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
-import InstallPWA from './components/InstallPWA';
+import installPWA from './components/installPWA';
 import { content, certificates } from './data/content';
 
 function App() {
@@ -76,13 +76,15 @@ function App() {
         setLanguage={setLanguage}
       />
 
-      <InstallPWA language={language} />
+      {/* installPWA component usage would go here */}
 
-      <ProfileSection
-        language={language}
-        content={content as any}
-        scrollToSection={scrollToSection}
-      />
+      <Element name="profile">
+        <Hero
+          language={language}
+          content={content as any}
+          scrollToSection={scrollToSection}
+        />
+      </Element>
 
       <main className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8">
@@ -105,11 +107,11 @@ function App() {
           />
 
           <Element name="skills">
-            <Skill language={language} />
+            <Skills language={language} />
           </Element>
 
           <Element name="family">
-            <Information language={language} age={age} />
+            <About language={language} age={age} />
           </Element>
 
           <Element name="contact">
@@ -126,7 +128,7 @@ function App() {
         />
       </Element>
 
-      <FloatingMenu />
+      <GhostAl />
     </div>
   );
 }
