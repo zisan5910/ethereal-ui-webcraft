@@ -100,7 +100,7 @@ const Navigation = ({
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={toggleMenu}
-            className="xl:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
+            className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             <AnimatePresence mode="wait">
@@ -116,8 +116,8 @@ const Navigation = ({
             </AnimatePresence>
           </motion.button>
 
-          {/* Desktop Navigation - More Compact */}
-          <div className="hidden xl:flex items-center space-x-1">
+          {/* Desktop Navigation - With Text Labels */}
+          <div className="hidden lg:flex items-center space-x-1 overflow-x-auto">
             {navigationItems.map((item) => (
               <motion.button
                 key={item.id}
@@ -128,7 +128,7 @@ const Navigation = ({
                 whileTap={{ scale: 0.98 }}
                 onClick={() => scrollToSection(item.target || item.id)}
                 className={cn(
-                  'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-all duration-200',
+                  'flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 min-w-fit',
                   isActive(item.id)
                     ? 'bg-gray-100/80 text-gray-900 shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
@@ -145,42 +145,13 @@ const Navigation = ({
                   {item.icon}
                 </motion.div>
                 <motion.span 
-                  className="font-medium text-xs hidden 2xl:inline"
+                  className="font-medium text-sm whitespace-nowrap"
                   animate={{
                     fontWeight: isActive(item.id) ? 600 : 500
                   }}
                 >
                   {getDisplayName(item.id)}
                 </motion.span>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Tablet Navigation - Icon Only */}
-          <div className="hidden lg:flex xl:hidden items-center space-x-1 overflow-x-auto max-w-[60%]">
-            {navigationItems.map((item) => (
-              <motion.button
-                key={item.id}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection(item.target || item.id)}
-                className={cn(
-                  'flex items-center justify-center p-2 rounded-lg transition-all duration-200 min-w-[40px]',
-                  isActive(item.id)
-                    ? 'bg-gray-100/80 text-gray-900 shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/50'
-                )}
-                title={getDisplayName(item.id)}
-              >
-                <motion.div
-                  animate={{
-                    rotate: isActive(item.id) ? 360 : 0,
-                  }}
-                  transition={{ duration: 0.6 }}
-                  className={cn('w-5 h-5', getIconColor(item.id))}
-                >
-                  {item.icon}
-                </motion.div>
               </motion.button>
             ))}
           </div>
@@ -214,7 +185,7 @@ const Navigation = ({
           </motion.button>
         </div>
 
-        {/* Mobile Menu - Improved Layout */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -225,7 +196,7 @@ const Navigation = ({
               }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="xl:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50"
+              className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50"
             >
               <div className="px-2 pt-2 pb-3">
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">

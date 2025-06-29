@@ -1,6 +1,7 @@
+
 import { useState } from 'react';
 import { Element } from 'react-scroll';
-import { BookOpen, Plus, Trash2, Calendar, User, ArrowLeft } from 'lucide-react';
+import { BookOpen, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface ResearchPost {
@@ -17,42 +18,32 @@ interface ResearchProps {
 }
 
 const Research = ({ onBack }: ResearchProps) => {
-  const [posts, setPosts] = useState<ResearchPost[]>([
+  const [posts] = useState<ResearchPost[]>([
     {
       id: '1',
-      title: 'Machine Learning in Web Development',
-      content: 'This research explores the integration of machine learning algorithms in modern web applications...',
+      title: 'ইসলামিক শিক্ষায় বিজ্ঞান ও প্রযুক্তির ভূমিকা',
+      content: 'ইসলামে জ্ঞান অর্জনকে ফরজ বলা হয়েছে। কুরআন ও হাদিসের আলোকে দেখা যায় যে, ইসলাম বিজ্ঞান ও প্রযুক্তির উন্নয়নে সবসময় উৎসাহ দিয়েছে। আধুনিক প্রযুক্তি ব্যবহার করে কিভাবে ইসলামিক শিক্ষাকে আরও কার্যকর করা যায় তার উপর এই গবেষণায় আলোকপাত করা হয়েছে।',
       date: '2024-01-15',
-      author: 'Md Ridoan Mahmud Zisan',
-      category: 'Technology'
+      author: 'মোহাম্মদ রিদোয়ান মাহমুদ জিসান',
+      category: 'ধর্ম ও প্রযুক্তি'
+    },
+    {
+      id: '2',
+      title: 'কুরআনে বর্ণিত বৈজ্ঞানিক সত্যসমূহ',
+      content: 'পবিত্র কুরআনে বহু বৈজ্ঞানিক তথ্য রয়েছে যা আধুনিক বিজ্ঞান দ্বারা প্রমাণিত। ভ্রূণতত্ত্ব, জ্যোতির্বিদ্যা, ভূতত্ত্ব ইত্যাদি বিষয়ে কুরআনের বর্ণনা এবং আধুনিক বিজ্ঞানের আবিষ্কারের মধ্যে সাদৃশ্য নিয়ে এই গবেষণায় বিস্তারিত আলোচনা করা হয়েছে।',
+      date: '2024-02-10',
+      author: 'মোহাম্মদ রিদোয়ান মাহমুদ জিসান',
+      category: 'ইসলামিক সায়েন্স'
+    },
+    {
+      id: '3',
+      title: 'ইসলামে পরিবেশ সংরক্ষণের গুরুত্ব',
+      content: 'ইসলাম একটি পূর্ণাঙ্গ জীবনব্যবস্থা যা পরিবেশ সংরক্ষণের উপর বিশেষ গুরুত্ব আরোপ করে। কুরআন ও সুন্নাহর আলোকে পরিবেশ রক্ষার নির্দেশনা এবং আধুনিক পরিবেশগত চ্যালেঞ্জ মোকাবেলায় ইসলামিক দৃষ্টিভঙ্গি নিয়ে এই গবেষণায় আলোচনা করা হয়েছে।',
+      date: '2024-03-05',
+      author: 'মোহাম্মদ রিদোয়ান মাহমুদ জিসান',
+      category: 'ইসলাম ও পরিবেশ'
     }
   ]);
-  const [isAdding, setIsAdding] = useState(false);
-  const [newPost, setNewPost] = useState({
-    title: '',
-    content: '',
-    category: ''
-  });
-
-  const handleAddPost = () => {
-    if (newPost.title && newPost.content) {
-      const post: ResearchPost = {
-        id: Date.now().toString(),
-        title: newPost.title,
-        content: newPost.content,
-        date: new Date().toISOString().split('T')[0],
-        author: 'Md Ridoan Mahmud Zisan',
-        category: newPost.category || 'General'
-      };
-      setPosts([post, ...posts]);
-      setNewPost({ title: '', content: '', category: '' });
-      setIsAdding(false);
-    }
-  };
-
-  const handleDeletePost = (id: string) => {
-    setPosts(posts.filter(post => post.id !== id));
-  };
 
   return (
     <Element name="research">
@@ -64,15 +55,14 @@ const Research = ({ onBack }: ResearchProps) => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            {/* Back Button */}
+            {/* Home Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={onBack}
               className="mb-6 flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
             >
-              <ArrowLeft size={20} />
-              <span>মূল পেজে ফিরে যান</span>
+              <Home size={20} />
             </motion.button>
 
             {/* Header */}
@@ -87,70 +77,9 @@ const Research = ({ onBack }: ResearchProps) => {
               </motion.div>
               <h1 className="text-4xl font-bold text-gray-900 mb-4">গবেষণা</h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                প্রযুক্তি এবং উন্নয়নে আমার গবেষণা কাজ এবং একাডেমিক অবদান দেখুন
+                ইসলামিক দৃষ্টিভঙ্গি থেকে প্রযুক্তি এবং উন্নয়নে আমার গবেষণা কাজ এবং একাডেমিক অবদান
               </p>
             </div>
-
-            {/* Add New Post Button */}
-            <div className="mb-8">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsAdding(true)}
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:bg-blue-700 transition-colors"
-              >
-                <Plus size={20} />
-                নতুন গবেষণা যোগ করুন
-              </motion.button>
-            </div>
-
-            {/* Add Post Form */}
-            {isAdding && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-lg shadow-lg p-6 mb-8"
-              >
-                <h3 className="text-xl font-semibold mb-4">নতুন গবেষণা যোগ করুন</h3>
-                <div className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="গবেষণার শিরোনাম"
-                    value={newPost.title}
-                    onChange={(e) => setNewPost({...newPost, title: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  />
-                  <input
-                    type="text"
-                    placeholder="বিভাগ"
-                    value={newPost.category}
-                    onChange={(e) => setNewPost({...newPost, category: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  />
-                  <textarea
-                    placeholder="গবেষণার বিস্তারিত"
-                    value={newPost.content}
-                    onChange={(e) => setNewPost({...newPost, content: e.target.value})}
-                    rows={6}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  />
-                  <div className="flex gap-4">
-                    <button
-                      onClick={handleAddPost}
-                      className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
-                    >
-                      প্রকাশ করুন
-                    </button>
-                    <button
-                      onClick={() => setIsAdding(false)}
-                      className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition-colors"
-                    >
-                      বাতিল
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            )}
 
             {/* Research Posts */}
             <div className="space-y-8">
@@ -163,42 +92,20 @@ const Research = ({ onBack }: ResearchProps) => {
                   className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
                 >
                   <div className="p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="flex-1">
-                        <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-2">
-                          {post.category}
-                        </span>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-2">{post.title}</h2>
-                        <div className="flex items-center gap-4 text-sm text-gray-600">
-                          <div className="flex items-center gap-1">
-                            <User size={16} />
-                            <span>{post.author}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Calendar size={16} />
-                            <span>{new Date(post.date).toLocaleDateString()}</span>
-                          </div>
-                        </div>
+                    <div className="mb-4">
+                      <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-2">
+                        {post.category}
+                      </span>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-2">{post.title}</h2>
+                      <div className="text-sm text-gray-600 mb-4">
+                        <span>{post.author} • {new Date(post.date).toLocaleDateString('bn-BD')}</span>
                       </div>
-                      <button
-                        onClick={() => handleDeletePost(post.id)}
-                        className="text-red-500 hover:text-red-700 p-2 rounded-lg hover:bg-red-50 transition-colors"
-                      >
-                        <Trash2 size={20} />
-                      </button>
                     </div>
                     <p className="text-gray-700 leading-relaxed">{post.content}</p>
                   </div>
                 </motion.article>
               ))}
             </div>
-
-            {posts.length === 0 && !isAdding && (
-              <div className="text-center py-12">
-                <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 text-lg">এখনো কোন গবেষণা পোস্ট নেই। প্রথম গবেষণা যোগ করে শুরু করুন!</p>
-              </div>
-            )}
           </motion.div>
         </div>
       </div>

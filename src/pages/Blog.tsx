@@ -1,6 +1,7 @@
+
 import { useState } from 'react';
 import { Element } from 'react-scroll';
-import { PenTool, Plus, Trash2, Calendar, User, Tag, ArrowLeft } from 'lucide-react';
+import { PenTool, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface BlogPost {
@@ -17,42 +18,56 @@ interface BlogProps {
 }
 
 const Blog = ({ onBack }: BlogProps) => {
-  const [posts, setPosts] = useState<BlogPost[]>([
+  const [posts] = useState<BlogPost[]>([
     {
       id: '1',
-      title: 'My Journey in Web Development',
-      content: 'Starting my journey as a web developer has been an incredible experience. From learning HTML and CSS to mastering React and TypeScript...',
+      title: 'স্বপ্নের ডানায়',
+      content: `আকাশের নীলিমায় মিশে যাওয়া
+স্বপ্নের ডানায় ভর করে উড়াল,
+মেঘের পাহাড় পার হয়ে যাওয়া
+জীবনের নতুন এক অধ্যায়।
+
+প্রযুক্তির জগতে হারিয়ে যাওয়া
+কোডের ভাষায় গড়া নতুন সৃষ্টি,
+স্বপ্নের সেতু তৈরি করে যাওয়া
+জীবনের প্রতিটি মুহূর্তে।`,
       date: '2024-01-20',
-      author: 'Md Ridoan Mahmud Zisan',
-      tags: ['Web Development', 'Personal', 'Journey']
+      author: 'মোহাম্মদ রিদোয়ান মাহমুদ জিসান',
+      tags: ['কবিতা', 'স্বপ্ন', 'প্রযুক্তি']
+    },
+    {
+      id: '2',
+      title: 'মায়ের ভালোবাসা',
+      content: `মায়ের চোখের পানিতে লুকিয়ে আছে
+অসীম ভালোবাসার সমুদ্র,
+তার হাসিতে মিশে আছে
+জীবনের সব সুখের খবর।
+
+দুঃখে তার বুকে মাথা রেখে
+পেয়েছি শান্তির ছোঁয়া,
+মায়ের দোয়ায় আছে সেই শক্তি
+যা পারে সব বাধা ভেঙে দিতে।`,
+      date: '2024-02-14',
+      author: 'মোহাম্মদ রিদোয়ান মাহমুদ জিসান',
+      tags: ['কবিতা', 'মা', 'ভালোবাসা']
+    },
+    {
+      id: '3',
+      title: 'বন্ধুত্বের গান',
+      content: `বন্ধুত্বের মিষ্টি সুরে বাঁধা
+জীবনের সুখ-দুঃখের গল্প,
+একসাথে হাসি কান্নার মেলা
+একসাথে চলার সব শপথ।
+
+দূরত্ব কখনো পারে না আমাদের
+আলাদা করে রাখতে,
+বন্ধুত্বের সুতোয় বাঁধা থাকে
+জীবনের সব মধুর স্মৃতি।`,
+      date: '2024-03-10',
+      author: 'মোহাম্মদ রিদোয়ান মাহমুদ জিসান',
+      tags: ['কবিতা', 'বন্ধুত্ব', 'স্মৃতি']
     }
   ]);
-  const [isAdding, setIsAdding] = useState(false);
-  const [newPost, setNewPost] = useState({
-    title: '',
-    content: '',
-    tags: ''
-  });
-
-  const handleAddPost = () => {
-    if (newPost.title && newPost.content) {
-      const post: BlogPost = {
-        id: Date.now().toString(),
-        title: newPost.title,
-        content: newPost.content,
-        date: new Date().toISOString().split('T')[0],
-        author: 'Md Ridoan Mahmud Zisan',
-        tags: newPost.tags.split(',').map(tag => tag.trim()).filter(tag => tag)
-      };
-      setPosts([post, ...posts]);
-      setNewPost({ title: '', content: '', tags: '' });
-      setIsAdding(false);
-    }
-  };
-
-  const handleDeletePost = (id: string) => {
-    setPosts(posts.filter(post => post.id !== id));
-  };
 
   return (
     <Element name="blog">
@@ -64,15 +79,14 @@ const Blog = ({ onBack }: BlogProps) => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            {/* Back Button */}
+            {/* Home Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={onBack}
               className="mb-6 flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
             >
-              <ArrowLeft size={20} />
-              <span>মূল পেজে ফিরে যান</span>
+              <Home size={20} />
             </motion.button>
 
             {/* Header */}
@@ -85,72 +99,11 @@ const Blog = ({ onBack }: BlogProps) => {
               >
                 <PenTool className="w-8 h-8 text-purple-600" />
               </motion.div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">ব্লগ</h1>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">কবিতার ভুবন</h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                প্রযুক্তি, উন্নয়ন এবং জীবনের উপর আমার চিন্তাভাবনা, অভিজ্ঞতা এবং দৃষ্টিভঙ্গি পড়ুন
+                হৃদয়ের গভীর থেকে উঠে আসা অনুভূতির ছন্দময় প্রকাশ
               </p>
             </div>
-
-            {/* Add New Post Button */}
-            <div className="mb-8">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsAdding(true)}
-                className="bg-purple-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:bg-purple-700 transition-colors"
-              >
-                <Plus size={20} />
-                নতুন পোস্ট লিখুন
-              </motion.button>
-            </div>
-
-            {/* Add Post Form */}
-            {isAdding && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-lg shadow-lg p-6 mb-8"
-              >
-                <h3 className="text-xl font-semibold mb-4">নতুন ব্লগ পোস্ট লিখুন</h3>
-                <div className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="ব্লগের শিরোনাম"
-                    value={newPost.title}
-                    onChange={(e) => setNewPost({...newPost, title: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  />
-                  <input
-                    type="text"
-                    placeholder="ট্যাগসমূহ (কমা দিয়ে আলাদা করুন)"
-                    value={newPost.tags}
-                    onChange={(e) => setNewPost({...newPost, tags: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  />
-                  <textarea
-                    placeholder="এখানে আপনার ব্লগের বিষয়বস্তু লিখুন..."
-                    value={newPost.content}
-                    onChange={(e) => setNewPost({...newPost, content: e.target.value})}
-                    rows={8}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                  />
-                  <div className="flex gap-4">
-                    <button
-                      onClick={handleAddPost}
-                      className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
-                    >
-                      প্রকাশ করুন
-                    </button>
-                    <button
-                      onClick={() => setIsAdding(false)}
-                      className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition-colors"
-                    >
-                      বাতিল
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            )}
 
             {/* Blog Posts */}
             <div className="space-y-8">
@@ -163,52 +116,29 @@ const Blog = ({ onBack }: BlogProps) => {
                   className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
                 >
                   <div className="p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-2">{post.title}</h2>
-                        <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                          <div className="flex items-center gap-1">
-                            <User size={16} />
-                            <span>{post.author}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Calendar size={16} />
-                            <span>{new Date(post.date).toLocaleDateString()}</span>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2 mb-4">
-                          <Tag size={16} className="text-gray-500" />
-                          <div className="flex gap-2 flex-wrap">
-                            {post.tags.map((tag, tagIndex) => (
-                              <span
-                                key={tagIndex}
-                                className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-medium"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
+                    <div className="mb-4">
+                      <h2 className="text-2xl font-bold text-gray-900 mb-2">{post.title}</h2>
+                      <div className="text-sm text-gray-600 mb-3">
+                        <span>{post.author} • {new Date(post.date).toLocaleDateString('bn-BD')}</span>
                       </div>
-                      <button
-                        onClick={() => handleDeletePost(post.id)}
-                        className="text-red-500 hover:text-red-700 p-2 rounded-lg hover:bg-red-50 transition-colors"
-                      >
-                        <Trash2 size={20} />
-                      </button>
+                      <div className="flex gap-2 flex-wrap mb-4">
+                        {post.tags.map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <p className="text-gray-700 leading-relaxed">{post.content}</p>
+                    <div className="text-gray-700 leading-relaxed whitespace-pre-line font-bengali">
+                      {post.content}
+                    </div>
                   </div>
                 </motion.article>
               ))}
             </div>
-
-            {posts.length === 0 && !isAdding && (
-              <div className="text-center py-12">
-                <PenTool className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 text-lg">এখনো কোন ব্লগ পোস্ট নেই। প্রথম পোস্ট লিখে শুরু করুন!</p>
-              </div>
-            )}
           </motion.div>
         </div>
       </div>
