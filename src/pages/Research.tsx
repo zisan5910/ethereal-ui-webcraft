@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import { Element } from 'react-scroll';
-import { BookOpen, Plus, Trash2, Calendar, User } from 'lucide-react';
+import { BookOpen, Plus, Trash2, Calendar, User, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface ResearchPost {
@@ -13,7 +12,11 @@ interface ResearchPost {
   category: string;
 }
 
-const Research = () => {
+interface ResearchProps {
+  onBack?: () => void;
+}
+
+const Research = ({ onBack }: ResearchProps) => {
   const [posts, setPosts] = useState<ResearchPost[]>([
     {
       id: '1',
@@ -61,6 +64,17 @@ const Research = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
+            {/* Back Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={onBack}
+              className="mb-6 flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+            >
+              <ArrowLeft size={20} />
+              <span>মূল পেজে ফিরে যান</span>
+            </motion.button>
+
             {/* Header */}
             <div className="text-center mb-12">
               <motion.div
@@ -71,9 +85,9 @@ const Research = () => {
               >
                 <BookOpen className="w-8 h-8 text-blue-600" />
               </motion.div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">Research</h1>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">গবেষণা</h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Explore my research work and academic contributions in technology and development
+                প্রযুক্তি এবং উন্নয়নে আমার গবেষণা কাজ এবং একাডেমিক অবদান দেখুন
               </p>
             </div>
 
@@ -86,7 +100,7 @@ const Research = () => {
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:bg-blue-700 transition-colors"
               >
                 <Plus size={20} />
-                Add New Research
+                নতুন গবেষণা যোগ করুন
               </motion.button>
             </div>
 
@@ -97,24 +111,24 @@ const Research = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-white rounded-lg shadow-lg p-6 mb-8"
               >
-                <h3 className="text-xl font-semibold mb-4">Add New Research</h3>
+                <h3 className="text-xl font-semibold mb-4">নতুন গবেষণা যোগ করুন</h3>
                 <div className="space-y-4">
                   <input
                     type="text"
-                    placeholder="Research Title"
+                    placeholder="গবেষণার শিরোনাম"
                     value={newPost.title}
                     onChange={(e) => setNewPost({...newPost, title: e.target.value})}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
                   <input
                     type="text"
-                    placeholder="Category"
+                    placeholder="বিভাগ"
                     value={newPost.category}
                     onChange={(e) => setNewPost({...newPost, category: e.target.value})}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
                   <textarea
-                    placeholder="Research Content"
+                    placeholder="গবেষণার বিস্তারিত"
                     value={newPost.content}
                     onChange={(e) => setNewPost({...newPost, content: e.target.value})}
                     rows={6}
@@ -125,13 +139,13 @@ const Research = () => {
                       onClick={handleAddPost}
                       className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
                     >
-                      Publish
+                      প্রকাশ করুন
                     </button>
                     <button
                       onClick={() => setIsAdding(false)}
                       className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition-colors"
                     >
-                      Cancel
+                      বাতিল
                     </button>
                   </div>
                 </div>
@@ -182,7 +196,7 @@ const Research = () => {
             {posts.length === 0 && !isAdding && (
               <div className="text-center py-12">
                 <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 text-lg">No research posts yet. Start by adding your first research!</p>
+                <p className="text-gray-500 text-lg">এখনো কোন গবেষণা পোস্ট নেই। প্রথম গবেষণা যোগ করে শুরু করুন!</p>
               </div>
             )}
           </motion.div>

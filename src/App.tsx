@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Element, scroller } from 'react-scroll';
 import { UserCircle, School, BookOpen, Briefcase, FileBadge, Code, HeartHandshake, Mail, Share2, Search, PenTool } from 'lucide-react';
@@ -84,13 +83,19 @@ function App() {
     setActiveSection(section);
   };
 
+  // Back to home handler
+  const handleBackToHome = () => {
+    setCurrentPage('home');
+    setActiveSection('profile');
+  };
+
   // Render current page
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 'research':
-        return <Research />;
+        return <Research onBack={handleBackToHome} />;
       case 'blog':
-        return <Blog />;
+        return <Blog onBack={handleBackToHome} />;
       default:
         return (
           <>

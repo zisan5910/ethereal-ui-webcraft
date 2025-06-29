@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import { Element } from 'react-scroll';
-import { PenTool, Plus, Trash2, Calendar, User, Tag } from 'lucide-react';
+import { PenTool, Plus, Trash2, Calendar, User, Tag, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface BlogPost {
@@ -13,7 +12,11 @@ interface BlogPost {
   tags: string[];
 }
 
-const Blog = () => {
+interface BlogProps {
+  onBack?: () => void;
+}
+
+const Blog = ({ onBack }: BlogProps) => {
   const [posts, setPosts] = useState<BlogPost[]>([
     {
       id: '1',
@@ -61,6 +64,17 @@ const Blog = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
+            {/* Back Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={onBack}
+              className="mb-6 flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
+            >
+              <ArrowLeft size={20} />
+              <span>মূল পেজে ফিরে যান</span>
+            </motion.button>
+
             {/* Header */}
             <div className="text-center mb-12">
               <motion.div
@@ -71,9 +85,9 @@ const Blog = () => {
               >
                 <PenTool className="w-8 h-8 text-purple-600" />
               </motion.div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog</h1>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">ব্লগ</h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Read my thoughts, experiences, and insights on technology, development, and life
+                প্রযুক্তি, উন্নয়ন এবং জীবনের উপর আমার চিন্তাভাবনা, অভিজ্ঞতা এবং দৃষ্টিভঙ্গি পড়ুন
               </p>
             </div>
 
@@ -86,7 +100,7 @@ const Blog = () => {
                 className="bg-purple-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:bg-purple-700 transition-colors"
               >
                 <Plus size={20} />
-                Write New Post
+                নতুন পোস্ট লিখুন
               </motion.button>
             </div>
 
@@ -97,24 +111,24 @@ const Blog = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-white rounded-lg shadow-lg p-6 mb-8"
               >
-                <h3 className="text-xl font-semibold mb-4">Write New Blog Post</h3>
+                <h3 className="text-xl font-semibold mb-4">নতুন ব্লগ পোস্ট লিখুন</h3>
                 <div className="space-y-4">
                   <input
                     type="text"
-                    placeholder="Blog Title"
+                    placeholder="ব্লগের শিরোনাম"
                     value={newPost.title}
                     onChange={(e) => setNewPost({...newPost, title: e.target.value})}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                   />
                   <input
                     type="text"
-                    placeholder="Tags (comma separated)"
+                    placeholder="ট্যাগসমূহ (কমা দিয়ে আলাদা করুন)"
                     value={newPost.tags}
                     onChange={(e) => setNewPost({...newPost, tags: e.target.value})}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                   />
                   <textarea
-                    placeholder="Write your blog content here..."
+                    placeholder="এখানে আপনার ব্লগের বিষয়বস্তু লিখুন..."
                     value={newPost.content}
                     onChange={(e) => setNewPost({...newPost, content: e.target.value})}
                     rows={8}
@@ -125,13 +139,13 @@ const Blog = () => {
                       onClick={handleAddPost}
                       className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
                     >
-                      Publish
+                      প্রকাশ করুন
                     </button>
                     <button
                       onClick={() => setIsAdding(false)}
                       className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition-colors"
                     >
-                      Cancel
+                      বাতিল
                     </button>
                   </div>
                 </div>
@@ -192,7 +206,7 @@ const Blog = () => {
             {posts.length === 0 && !isAdding && (
               <div className="text-center py-12">
                 <PenTool className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 text-lg">No blog posts yet. Start by writing your first post!</p>
+                <p className="text-gray-500 text-lg">এখনো কোন ব্লগ পোস্ট নেই। প্রথম পোস্ট লিখে শুরু করুন!</p>
               </div>
             )}
           </motion.div>

@@ -93,14 +93,14 @@ const Navigation = ({
         'backdrop-blur-xl border-b border-gray-200/50'
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Mobile Menu Button */}
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={toggleMenu}
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
+            className="xl:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             <AnimatePresence mode="wait">
@@ -111,13 +111,13 @@ const Navigation = ({
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.15 }}
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </motion.div>
             </AnimatePresence>
           </motion.button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-2">
+          {/* Desktop Navigation - More Compact */}
+          <div className="hidden xl:flex items-center space-x-1">
             {navigationItems.map((item) => (
               <motion.button
                 key={item.id}
@@ -128,29 +128,59 @@ const Navigation = ({
                 whileTap={{ scale: 0.98 }}
                 onClick={() => scrollToSection(item.target || item.id)}
                 className={cn(
-                  'flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200',
+                  'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-all duration-200',
                   isActive(item.id)
                     ? 'bg-gray-100/80 text-gray-900 shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
                 )}
+                title={getDisplayName(item.id)}
               >
                 <motion.div
                   animate={{
                     rotate: isActive(item.id) ? [0, 360] : 0,
                   }}
                   transition={{ duration: 0.6, ease: "backOut" }}
-                  className={cn('w-5 h-5', getIconColor(item.id))}
+                  className={cn('w-4 h-4', getIconColor(item.id))}
                 >
                   {item.icon}
                 </motion.div>
                 <motion.span 
-                  className="font-medium text-sm"
+                  className="font-medium text-xs hidden 2xl:inline"
                   animate={{
                     fontWeight: isActive(item.id) ? 600 : 500
                   }}
                 >
                   {getDisplayName(item.id)}
                 </motion.span>
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Tablet Navigation - Icon Only */}
+          <div className="hidden lg:flex xl:hidden items-center space-x-1 overflow-x-auto max-w-[60%]">
+            {navigationItems.map((item) => (
+              <motion.button
+                key={item.id}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection(item.target || item.id)}
+                className={cn(
+                  'flex items-center justify-center p-2 rounded-lg transition-all duration-200 min-w-[40px]',
+                  isActive(item.id)
+                    ? 'bg-gray-100/80 text-gray-900 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/50'
+                )}
+                title={getDisplayName(item.id)}
+              >
+                <motion.div
+                  animate={{
+                    rotate: isActive(item.id) ? 360 : 0,
+                  }}
+                  transition={{ duration: 0.6 }}
+                  className={cn('w-5 h-5', getIconColor(item.id))}
+                >
+                  {item.icon}
+                </motion.div>
               </motion.button>
             ))}
           </div>
@@ -165,7 +195,7 @@ const Navigation = ({
             whileTap={{ scale: 0.95 }}
             onClick={() => setLanguage(language === 'en' ? 'bn' : 'en')}
             className={cn(
-              'p-2 rounded-full transition-all duration-300',
+              'p-1.5 sm:p-2 rounded-full transition-all duration-300',
               'text-purple-700 hover:text-purple-800',
               'border border-purple-300 hover:border-purple-400',
               'focus:outline-none focus:ring-2 focus:ring-purple-400/30',
@@ -179,12 +209,12 @@ const Navigation = ({
               animate={{ rotate: language === 'en' ? 0 : 180 }}
               transition={{ type: 'spring', stiffness: 300, damping: 10 }}
             >
-              <Languages size={20} className="text-current" />
+              <Languages size={16} className="sm:w-5 sm:h-5 text-current" />
             </motion.div>
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Improved Layout */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -195,49 +225,51 @@ const Navigation = ({
               }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50"
+              className="xl:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50"
             >
-              <div className="px-2 pt-2 pb-3 space-y-2">
-                {navigationItems.map((item, index) => (
-                  <motion.button
-                    key={item.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ 
-                      opacity: 1, 
-                      x: 0,
-                      transition: { 
-                        delay: index * 0.05,
-                        type: 'spring',
-                        stiffness: 300,
-                        damping: 20
-                      }
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => {
-                      scrollToSection(item.target || item.id);
-                      setIsMenuOpen(false);
-                    }}
-                    className={cn(
-                      'w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200',
-                      isActive(item.id)
-                        ? 'bg-gray-100/80 text-gray-900'
-                        : 'text-gray-600 hover:bg-gray-100/50 hover:text-gray-900'
-                    )}
-                  >
-                    <motion.div
-                      animate={{
-                        rotate: isActive(item.id) ? 360 : 0,
+              <div className="px-2 pt-2 pb-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {navigationItems.map((item, index) => (
+                    <motion.button
+                      key={item.id}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ 
+                        opacity: 1, 
+                        scale: 1,
+                        transition: { 
+                          delay: index * 0.03,
+                          type: 'spring',
+                          stiffness: 300,
+                          damping: 20
+                        }
                       }}
-                      transition={{ duration: 0.6 }}
-                      className={cn('w-6 h-6', getIconColor(item.id))}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => {
+                        scrollToSection(item.target || item.id);
+                        setIsMenuOpen(false);
+                      }}
+                      className={cn(
+                        'flex flex-col items-center gap-2 p-3 rounded-lg transition-all duration-200',
+                        isActive(item.id)
+                          ? 'bg-gray-100/80 text-gray-900'
+                          : 'text-gray-600 hover:bg-gray-100/50 hover:text-gray-900'
+                      )}
                     >
-                      {item.icon}
-                    </motion.div>
-                    <span className="font-medium text-sm">
-                      {getDisplayName(item.id)}
-                    </span>
-                  </motion.button>
-                ))}
+                      <motion.div
+                        animate={{
+                          rotate: isActive(item.id) ? 360 : 0,
+                        }}
+                        transition={{ duration: 0.6 }}
+                        className={cn('w-6 h-6', getIconColor(item.id))}
+                      >
+                        {item.icon}
+                      </motion.div>
+                      <span className="font-medium text-xs text-center leading-tight">
+                        {getDisplayName(item.id)}
+                      </span>
+                    </motion.button>
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}
