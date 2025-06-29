@@ -1,6 +1,6 @@
 
 import { Element } from 'react-scroll';
-import { BookOpen, Home } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { researchPosts } from '../data/researchData';
 
@@ -30,16 +30,6 @@ const Research = ({ onBack, language = 'en' }: ResearchProps) => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            {/* Mobile Home Button - Only visible on mobile */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onBack}
-              className="md:hidden mb-6 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 text-blue-600 hover:text-blue-700"
-            >
-              <Home size={16} />
-            </motion.button>
-
             {/* Header */}
             <div className="text-center mb-8">
               <motion.div

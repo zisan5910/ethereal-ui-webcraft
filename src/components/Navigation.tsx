@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { Menu, X, Languages } from 'lucide-react';
+import { Menu, X, Languages, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../lib/utils';
 
@@ -15,6 +14,7 @@ interface NavigationProps {
   language: 'en' | 'bn';
   setLanguage: (lang: 'en' | 'bn') => void;
   currentPage?: string;
+  onBackToHome?: () => void;
 }
 
 const Navigation = ({
@@ -24,6 +24,7 @@ const Navigation = ({
   language,
   setLanguage,
   currentPage = 'home',
+  onBackToHome,
 }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -69,6 +70,7 @@ const Navigation = ({
       research: { en: 'Research', bn: 'গবেষণা' },
       blog: { en: 'Blog', bn: 'ব্লগ' },
       'social-links': { en: 'Social', bn: 'সামাজিক' },
+      home: { en: 'Home', bn: 'হোম' },
     };
     return names[id]?.[language] || id.charAt(0).toUpperCase() + id.slice(1);
   };
@@ -78,6 +80,9 @@ const Navigation = ({
     if (id === 'blog' && currentPage === 'blog') return true;
     return activeSection === (id === 'social-links' ? 'footer' : id) && currentPage === 'home';
   };
+
+  // Show Home button only for Research and Blog pages
+  const showHomeButton = currentPage === 'research' || currentPage === 'blog';
 
   return (
     <motion.nav
@@ -116,9 +121,31 @@ const Navigation = ({
             </AnimatePresence>
           </motion.button>
 
-          {/* Desktop Navigation - With Text Labels */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1 overflow-x-auto">
-            {navigationItems.map((item) => (
+            {/* Home Button - Only for Research and Blog pages */}
+            {showHomeButton && onBackToHome && (
+              <motion.button
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: 'rgba(241, 245, 249, 0.7)'
+                }}
+                whileTap={{ scale: 0.98 }}
+                onClick={onBackToHome}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 min-w-fit text-gray-600 hover:text-gray-900"
+                title={getDisplayName('home')}
+              >
+                <motion.div className="w-4 h-4 text-indigo-500">
+                  <Home size={16} />
+                </motion.div>
+                <motion.span className="font-medium text-sm whitespace-nowrap">
+                  {getDisplayName('home')}
+                </motion.span>
+              </motion.button>
+            )}
+
+            {/* Regular Navigation Items - Only show on home page */}
+            {currentPage === 'home' && navigationItems.map((item) => (
               <motion.button
                 key={item.id}
                 whileHover={{ 
@@ -200,7 +227,38 @@ const Navigation = ({
             >
               <div className="px-2 pt-2 pb-3">
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {navigationItems.map((item, index) => (
+                  {/* Home Button for Mobile - Only for Research and Blog pages */}
+                  {showHomeButton && onBackToHome && (
+                    <motion.button
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ 
+                        opacity: 1, 
+                        scale: 1,
+                        transition: { 
+                          delay: 0,
+                          type: 'spring',
+                          stiffness: 300,
+                          damping: 20
+                        }
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => {
+                        onBackToHome();
+                        setIsMenuOpen(false);
+                      }}
+                      className="flex flex-col items-center gap-2 p-3 rounded-lg transition-all duration-200 text-gray-600 hover:bg-gray-100/50 hover:text-gray-900"
+                    >
+                      <motion.div className="w-6 h-6 text-indigo-500">
+                        <Home size={24} />
+                      </motion.div>
+                      <span className="font-medium text-xs text-center leading-tight">
+                        {getDisplayName('home')}
+                      </span>
+                    </motion.button>
+                  )}
+
+                  {/* Regular Navigation Items - Only show on home page */}
+                  {currentPage === 'home' && navigationItems.map((item, index) => (
                     <motion.button
                       key={item.id}
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -208,7 +266,7 @@ const Navigation = ({
                         opacity: 1, 
                         scale: 1,
                         transition: { 
-                          delay: index * 0.03,
+                          delay: (index + (showHomeButton ? 1 : 0)) * 0.03,
                           type: 'spring',
                           stiffness: 300,
                           damping: 20

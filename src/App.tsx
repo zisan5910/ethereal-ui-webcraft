@@ -167,6 +167,7 @@ function App() {
         language={language}
         setLanguage={setLanguage}
         currentPage={currentPage}
+        onBackToHome={handleBackToHome}
       />
 
       {/* Render Current Page */}

@@ -1,6 +1,6 @@
 
 import { Element } from 'react-scroll';
-import { PenTool, Home, Heart, MessageCircle, Share } from 'lucide-react';
+import { PenTool, Heart, MessageCircle, Share } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { blogPosts } from '../data/blogData';
 
@@ -30,16 +30,6 @@ const Blog = ({ onBack, language = 'en' }: BlogProps) => {
             transition={{ duration: 0.6 }}
             className="max-w-2xl mx-auto"
           >
-            {/* Mobile Home Button - Only visible on mobile */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onBack}
-              className="md:hidden mb-6 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 text-purple-600 hover:text-purple-700"
-            >
-              <Home size={16} />
-            </motion.button>
-
             {/* Header */}
             <div className="text-center mb-8">
               <motion.div
