@@ -93,9 +93,9 @@ function App() {
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 'research':
-        return <Research onBack={handleBackToHome} />;
+        return <Research onBack={handleBackToHome} language={language} />;
       case 'blog':
-        return <Blog onBack={handleBackToHome} />;
+        return <Blog onBack={handleBackToHome} language={language} />;
       default:
         return (
           <>
