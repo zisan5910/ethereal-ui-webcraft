@@ -14,6 +14,7 @@ export interface BlogPost {
     bn: string;
   };
   type: 'poem' | 'article';
+  image: string;
 }
 
 export const blogData: BlogPost[] = [
@@ -58,7 +59,8 @@ No longer lost, no longer prone.`,
       en: "Md Ridoan Mahmud Zisan",
       bn: "মো রিদওয়ান মাহমুদ জিসান"
     },
-    type: "poem"
+    type: "poem",
+    image: "photo-1500375592092-40eb2168fd21"
   },
   {
     id: "2", 
@@ -101,7 +103,8 @@ Forever Yours, forever mine.`,
       en: "Md Ridoan Mahmud Zisan",
       bn: "মো রিদওয়ান মাহমুদ জিসান"
     },
-    type: "poem"
+    type: "poem",
+    image: "photo-1487058792275-0ad4aaf24ca7"
   },
   {
     id: "3",
@@ -144,6 +147,7 @@ From worldly chains, now depart.`,
       en: "Md Ridoan Mahmud Zisan",
       bn: "মো রিদওয়ান মাহমুদ জিসান"
     },
-    type: "poem"
+    type: "poem",
+    image: "photo-1518770660439-4636190af475"
   }
 ];

@@ -18,15 +18,28 @@ const Research = ({ language }: ResearchProps) => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              {/* Research Paper Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6">
-                <h1 className="text-2xl font-bold mb-2">
+              {/* Author Section */}
+              <div className="p-6 border-b border-gray-200">
+                <div className="flex items-center gap-4 mb-4">
+                  <img 
+                    src="/profile.jpg" 
+                    alt="Author" 
+                    className="w-16 h-16 rounded-full object-cover border-3 border-blue-200"
+                  />
+                  <div>
+                    <h3 className="font-semibold text-gray-900 text-lg">
+                      {item.author[language]}
+                    </h3>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <span>{language === 'en' ? 'Published:' : 'প্রকাশিত:'} {new Date(item.date).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Research Title */}
+                <h1 className="text-2xl font-bold text-gray-800 mb-4">
                   {item.title[language]}
                 </h1>
-                <div className="flex flex-wrap items-center gap-4 text-sm opacity-90">
-                  <span>{language === 'en' ? 'Author:' : 'লেখক:'} {item.author[language]}</span>
-                  <span>{language === 'en' ? 'Date:' : 'তারিখ:'} {new Date(item.date).toLocaleDateString()}</span>
-                </div>
               </div>
 
               {/* Abstract Section */}
@@ -61,7 +74,17 @@ const Research = ({ language }: ResearchProps) => {
                 <h2 className="text-lg font-semibold text-gray-800 mb-4">
                   {language === 'en' ? 'Research Content' : 'গবেষণার বিষয়বস্তু'}
                 </h2>
-                <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                
+                {/* Research Image */}
+                <div className="mb-6 rounded-lg overflow-hidden">
+                  <img 
+                    src={`https://images.unsplash.com/${item.image}?w=800&h=400&fit=crop`}
+                    alt={item.title[language]}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+                
+                <div className="text-gray-700 leading-relaxed whitespace-pre-line text-justify">
                   {item.content[language]}
                 </div>
               </div>

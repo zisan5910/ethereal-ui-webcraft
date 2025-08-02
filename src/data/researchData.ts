@@ -21,6 +21,7 @@ export interface ResearchItem {
     en: string[];
     bn: string[];
   };
+  image: string;
 }
 
 export const researchData: ResearchItem[] = [
@@ -46,7 +47,8 @@ export const researchData: ResearchItem[] = [
     keywords: {
       en: ["Prayer", "Islam", "Spirituality", "Faith", "Worship"],
       bn: ["নামাজ", "ইসলাম", "আধ্যাত্মিকতা", "বিশ্বাস", "ইবাদত"]
-    }
+    },
+    image: "photo-1461749280684-dccba630e2f6"
   },
   {
     id: "2",
@@ -70,6 +72,7 @@ export const researchData: ResearchItem[] = [
     keywords: {
       en: ["Tawhid", "Monotheism", "Islamic Theology", "Faith", "Unity"],
       bn: ["তাওহীদ", "একেশ্বরবাদ", "ইসলামী ধর্মতত্ত্ব", "বিশ্বাস", "একত্ব"]
-    }
+    },
+    image: "photo-1483058712412-4245e9b90334"
   }
 ];
