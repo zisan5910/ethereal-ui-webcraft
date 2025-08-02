@@ -22,7 +22,7 @@ export const LiveChat = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Enhanced constant replies with more information
+    // Enhanced constant replies with comprehensive information
   const getConstantReply = (userInput: string): string | null => {
     const lowerInput = userInput.toLowerCase();
 
@@ -33,17 +33,23 @@ export const LiveChat = () => {
       lowerInput.includes('who made you') ||
       lowerInput.includes('your creator') ||
       lowerInput.includes('zisan') ||
-      lowerInput.includes('ridoan')
+      lowerInput.includes('ridoan') ||
+      lowerInput.includes('who are you') ||
+      lowerInput.includes('about')
     ) {
-      return `I was created by Md Ridoan Mahmud Zisan, a passionate web developer and student from Bogura, Bangladesh. 
-      \n\nHere's some info about him:
-      \n- 📫 Contact: ridoan.zisan@gmail.com
+      return `I was created by Md Ridoan Mahmud Zisan, a passionate web developer, Islamic researcher, and student from Bogura, Bangladesh. 
+      \n\n👤 Personal Information:
+      \n- 📫 Email: ridoan.zisan@gmail.com
       \n- 📞 Phone: +8801712525910
       \n- 📍 Location: Bogura, Bangladesh
       \n- 🔗 LinkedIn: https://linkedin.com/in/ridoan2007
       \n- 🩸 Blood Group: B+
-      \n- 🎂 Date of Birth: December 31, 2007
-      \n- 🌐 Religion: Humanity`;
+      \n- 🎂 Date of Birth: December 31, 2007 (Age: 16)
+      \n- 🌐 Religion: Islam
+      \n- 🏠 Family: Father (Md Rokibul Hasan Shekh), Mother (Mst. Zosna Khatun), 1 Sister
+      \n\n🎓 Current Status: HSC Student at Karatoa Multimedia School and College
+      \n💻 Skills: Web Development, React.js, Firebase, AI/ML, Islamic Studies
+      \n🩸 Volunteer: BOBDO (Blood Donation Organization)`;
     }
 
     // Education information
@@ -101,22 +107,30 @@ export const LiveChat = () => {
       lowerInput.includes('project') ||
       lowerInput.includes('work') ||
       lowerInput.includes('build') ||
-      lowerInput.includes('developed')
+      lowerInput.includes('developed') ||
+      lowerInput.includes('portfolio')
     ) {
       return `Md Ridoan Mahmud Zisan's Notable Projects:
       \n🩸 BOBDO (Bogura Online Blood Donation Organization)
       \n- React + Firebase blood management system
-      \n- Real-time donor database
-      \n- Serves 68k+ community members
-      \n- Reduced response time by 40%
+      \n- Real-time donor database serving 68k+ members
+      \n- Reduced emergency response time by 40%
+      \n- Integrated donation history tracking
       \n- Link: https://bobdo.netlify.app
       \n\n📐 UniConverter
-      \n- Unit converter supporting 50+ measurement categories
+      \n- Comprehensive unit converter (50+ categories)
       \n- Progressive Web App (PWA) functionality
+      \n- Offline capability & responsive design
       \n- Link: https://uniconverter.netlify.app
-      \n\n💻 DevHub
-      \n- Portfolio showcasing all projects
-      \n- Link: https://devhub-i.netlify.app`;
+      \n\n💻 Personal Portfolio Website
+      \n- Multi-language support (English/Bengali)
+      \n- Research & Blog sections
+      \n- PWA-enabled with modern design
+      \n- Features: Contact forms, certificates display
+      \n\n🔬 Research Work:
+      \n- "The Role of Prayer in Islamic Spirituality"
+      \n- "The Concept of Tawhid in Islamic Theology"
+      \n- Academic papers on Islamic studies`;
     }
 
     // Certificates information
@@ -128,17 +142,24 @@ export const LiveChat = () => {
       lowerInput.includes('olympiad')
     ) {
       return `Md Ridoan Mahmud Zisan's Certifications & Achievements:
-      \n🏅 Academic Olympiads:
-      \n- Zero Olympiad (UN SDGs & climate action) - Semi-Final
-      \n- Bangladesh AI Olympiad - Semi-Final
+      \n🏅 Academic Olympiads & Competitions:
+      \n- Zero Olympiad (UN SDGs & Climate Action) - Semi-Final
+      \n- Bangladesh AI Olympiad - Semi-Final 
       \n- ICT Olympiad Bangladesh - Semi-Final
-      \n- Math Olympiad - Selective Round
+      \n- Mathematics Olympiad - Selective Round
+      \n- Various programming contests participant
       
       \n📜 Professional Certifications:
       \n- AI, Machine Learning & Cyber Security (Simplilearn)
-      \n- Complete Web Development (Programming Hero)
-      \n- Digital Marketing (HubSpot Academy)
-      \n- Corporate Skills (10 Minute School)`;
+      \n- Complete Web Development Course (Programming Hero)
+      \n- Digital Marketing Certification (HubSpot Academy)
+      \n- Corporate Skills Development (10 Minute School)
+      \n- Firebase & React.js Development
+      \n- Progressive Web App (PWA) Development
+      \n\n🎓 Academic Excellence:
+      \n- HSC GPA: 5.00/5.00 (Science - Higher Mathematics)
+      \n- SSC GPA: 5.00/5.00 (Science - Higher Mathematics)
+      \n- Consistent top performer in academics`;
     }
 
     // Contact information
@@ -191,13 +212,76 @@ export const LiveChat = () => {
       \n- Siblings: 1 Younger Sister`;
     }
 
+    // Research & Academic work
+    if (
+      lowerInput.includes('research') ||
+      lowerInput.includes('academic') ||
+      lowerInput.includes('paper') ||
+      lowerInput.includes('study') ||
+      lowerInput.includes('islamic') ||
+      lowerInput.includes('religion')
+    ) {
+      return `Md Ridoan Mahmud Zisan's Research & Academic Work:
+      \n📚 Current Research Areas:
+      \n- Islamic Spirituality & Theology
+      \n- Islamic Prayer (Salah) Studies
+      \n- Tawhid (Islamic Monotheism)
+      \n- Contemporary Islamic Thought
+      
+      \n📝 Published Research Papers:
+      \n1. "The Role of Prayer in Islamic Spirituality"
+      \n   - Explores spiritual dimensions of Salah
+      \n   - Analysis of psychological & spiritual benefits
+      \n   - Community aspects of congregational prayer
+      
+      \n2. "The Concept of Tawhid in Islamic Theology"
+      \n   - In-depth theological analysis
+      \n   - Three dimensions: Rububiyyah, Uluhiyyah, Asma wa Sifat
+      \n   - Practical implications in Muslim life
+      
+      \n🎯 Research Focus:
+      \n- Bridging classical Islamic knowledge with modern understanding
+      \n- Practical application of Islamic principles
+      \n- Contemporary relevance of traditional practices`;
+    }
+
+    // Blog & Poetry
+    if (
+      lowerInput.includes('blog') ||
+      lowerInput.includes('poetry') ||
+      lowerInput.includes('poem') ||
+      lowerInput.includes('writing') ||
+      lowerInput.includes('literature')
+    ) {
+      return `Md Ridoan Mahmud Zisan's Creative Writing:
+      \n✍️ Blog & Poetry:
+      \n- Bilingual content (English & Bengali)
+      \n- Inspirational poetry and life reflections
+      \n- Thought-provoking social commentary
+      \n- Personal experiences and insights
+      
+      \n📖 Writing Themes:
+      \n- Life philosophy and motivation
+      \n- Social awareness and responsibility
+      \n- Spiritual and personal growth
+      \n- Youth perspectives on contemporary issues
+      
+      \n🌟 Featured Works:
+      \n- Various motivational poems
+      \n- Social awareness content
+      \n- Personal journey reflections
+      \n- Educational and inspirational posts`;
+    }
+
     // Basic greetings
     if (
       lowerInput.includes('hello') ||
       lowerInput.includes('hi') ||
-      lowerInput.includes('hey')
+      lowerInput.includes('hey') ||
+      lowerInput.includes('assalam') ||
+      lowerInput.includes('salam')
     ) {
-      return "Hello there! I'm Ghost AI, here to tell you about Md Ridoan Mahmud Zisan. How can I help you today?\n\nYou can ask about:\n- His education\n- Skills\n- Projects\n- Certifications\n- Volunteer work\n- Contact information\n- Or anything else!";
+      return "👻 Assalamu Alaikum! Hello there! I'm Ghost AI, here to tell you everything about Md Ridoan Mahmud Zisan. How can I help you today?\n\n🔍 You can ask about:\n- Personal information & background\n- Education & academic achievements\n- Technical skills & expertise\n- Projects & development work\n- Research & Islamic studies\n- Blog & creative writing\n- Certifications & awards\n- Volunteer work & community service\n- Contact information\n- Family & personal life\n- Or anything else you're curious about!";
     }
 
     // Thank you responses

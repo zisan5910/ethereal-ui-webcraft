@@ -69,23 +69,123 @@ const Research = ({ language }: ResearchProps) => {
                 </div>
               </div>
 
-              {/* Main Content */}
-              <div className="p-6">
-                <h2 className="text-lg font-semibold text-gray-800 mb-4">
-                  {language === 'en' ? 'Research Content' : 'গবেষণার বিষয়বস্তু'}
+              {/* Introduction Section */}
+              <div className="p-6 border-b border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                  {language === 'en' ? 'Introduction' : 'ভূমিকা'}
                 </h2>
-                
-                {/* Research Image */}
-                <div className="mb-6 rounded-lg overflow-hidden">
+                <div className="mb-4 rounded-lg overflow-hidden">
                   <img 
-                    src={`https://images.unsplash.com/${item.image}?w=800&h=400&fit=crop`}
+                    src={`https://images.unsplash.com/${item.image}?w=800&h=300&fit=crop`}
                     alt={item.title[language]}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-48 object-cover"
                   />
                 </div>
-                
+                <p className="text-gray-700 leading-relaxed text-justify">
+                  {item.introduction[language]}
+                </p>
+              </div>
+
+              {/* Objectives Section */}
+              <div className="p-6 border-b border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                  {language === 'en' ? 'Objectives / Research Questions' : 'উদ্দেশ্য বা গবেষণা প্রশ্ন'}
+                </h2>
+                <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {item.objectives[language]}
+                </div>
+              </div>
+
+              {/* Methodology Section */}
+              <div className="p-6 border-b border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                  {language === 'en' ? 'Methodology' : 'গবেষণার পদ্ধতি'}
+                </h2>
+                <div className="mb-4 rounded-lg overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?w=800&h=300&fit=crop"
+                    alt="Research Methodology"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
                 <div className="text-gray-700 leading-relaxed whitespace-pre-line text-justify">
-                  {item.content[language]}
+                  {item.methodology[language]}
+                </div>
+              </div>
+
+              {/* Results Section */}
+              <div className="p-6 border-b border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                  {language === 'en' ? 'Results' : 'ফলাফল'}
+                </h2>
+                <div className="mb-4 rounded-lg overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=300&fit=crop"
+                    alt="Research Results"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+                <div className="text-gray-700 leading-relaxed whitespace-pre-line text-justify">
+                  {item.results[language]}
+                </div>
+              </div>
+
+              {/* Discussion Section */}
+              <div className="p-6 border-b border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                  {language === 'en' ? 'Discussion' : 'আলোচনা'}
+                </h2>
+                <div className="text-gray-700 leading-relaxed text-justify">
+                  {item.discussion[language]}
+                </div>
+              </div>
+
+              {/* Conclusion Section */}
+              <div className="p-6 border-b border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-sm font-bold">6</span>
+                  {language === 'en' ? 'Conclusion' : 'উপসংহার'}
+                </h2>
+                <div className="mb-4 rounded-lg overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=800&h=300&fit=crop"
+                    alt="Conclusion"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+                <div className="text-gray-700 leading-relaxed text-justify">
+                  {item.conclusion[language]}
+                </div>
+              </div>
+
+              {/* References Section */}
+              <div className="p-6 border-b border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-sm font-bold">7</span>
+                  {language === 'en' ? 'References / Bibliography' : 'তথ্যসূত্র'}
+                </h2>
+                <div className="space-y-2">
+                  {item.references[language].map((reference, i) => (
+                    <div key={i} className="text-gray-700 text-sm">
+                      <span className="font-medium">[{i + 1}]</span> {reference}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Acknowledgement Section */}
+              <div className="p-6">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-8 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-sm font-bold">8</span>
+                  {language === 'en' ? 'Acknowledgement' : 'ধন্যবাদ জ্ঞাপন'}
+                </h2>
+                <div className="text-gray-700 leading-relaxed text-justify italic">
+                  {item.acknowledgement[language]}
                 </div>
               </div>
             </motion.article>
