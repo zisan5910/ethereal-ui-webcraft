@@ -5,27 +5,27 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-3.5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary-dark shadow-md hover:shadow-lg hover:scale-105",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md hover:shadow-lg",
-        outline: "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-white shadow-sm hover:shadow-md",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-hero text-white font-bold shadow-hero hover:shadow-lg hover:scale-105 border-0",
-        donate: "bg-accent-orange text-accent-orange-foreground font-bold shadow-lg hover:bg-accent-orange/90 hover:scale-105",
-        volunteer: "bg-accent-green text-accent-green-foreground font-bold shadow-lg hover:bg-accent-green/90 hover:scale-105",
-        cta: "bg-gradient-cta text-white font-bold shadow-lg hover:shadow-xl hover:scale-105",
+        hero: "bg-primary text-primary-foreground hover:bg-primary/90",
+        donate: "bg-accent-orange text-accent-orange-foreground hover:bg-accent-orange/90",
+        volunteer: "bg-accent-green text-accent-green-foreground hover:bg-accent-green/90",
+        cta: "bg-primary text-primary-foreground hover:bg-primary/90",
       },
       size: {
-        default: "h-11 px-6 py-3",
-        sm: "h-9 rounded-md px-4 text-xs",
-        lg: "h-14 rounded-xl px-8 text-lg",
-        xl: "h-16 rounded-xl px-12 text-xl",
-        icon: "h-10 w-10",
+        default: "h-9 px-4 py-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-10 rounded-md px-6",
+        xl: "h-11 rounded-md px-8",
+        icon: "h-9 w-9",
       },
     },
     defaultVariants: {

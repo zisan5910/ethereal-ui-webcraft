@@ -18,51 +18,51 @@ const HeroSection = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
+      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-3xl mx-auto">
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-4 leading-tight font-[Noto_Sans_Bengali]">
             তরুণদের ক্ষমতায়ন,
-            <span className="block text-white drop-shadow-lg">
+            <span className="block text-white/95">
               আশার নির্মাণ
             </span>
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-            শিক্ষা, পরিবেশ সচেতনতা এবং যুব উন্নয়ন কর্মসূচির মাধ্যমে সমগ্র বাংলাদেশে ইতিবাচক পরিবর্তন আনতে আমাদের সাথে যোগ দিন।
+          <p className="text-sm md:text-base text-white/80 mb-6 max-w-2xl mx-auto leading-relaxed font-[Noto_Sans_Bengali]">
+            শিক্ষা, পরিবেশ সচেতনতা এবং যুব উন্নয়ন কর্মসূচির মাধ্যমে বাংলাদেশে ইতিবাচক পরিবর্তন আনতে আমাদের সাথে যোগ দিন
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <Button 
               variant="volunteer" 
-              size="xl" 
-              className="group min-w-[200px] shadow-lg hover:shadow-xl"
+              size="default" 
+              className="group font-[Noto_Sans_Bengali]"
               onClick={() => navigate('/volunteer')}
             >
-              স্বেচ্ছাসেবক হিসেবে যোগদান
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              স্বেচ্ছাসেবক হন
+              <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </Button>
             
             <Button 
               variant="donate" 
-              size="xl" 
-              className="group min-w-[200px] shadow-lg hover:shadow-xl"
+              size="default" 
+              className="group font-[Noto_Sans_Bengali]"
               onClick={() => navigate('/donate')}
             >
-              এখনই দান করুন
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              দান করুন
+              <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
         <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-lg flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-5 h-8 border border-white/40 rounded-full flex justify-center">
+            <div className="w-0.5 h-2 bg-white/60 rounded-full mt-1.5 animate-pulse"></div>
           </div>
         </div>
       </div>

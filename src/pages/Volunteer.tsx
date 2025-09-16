@@ -89,75 +89,38 @@ const Volunteer = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary/20 to-accent-green/20 overflow-hidden">
-        <div className="absolute inset-0 opacity-50"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-8">
-            <Badge className="bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">
-              You Are The Change Maker
-            </Badge>
-          </div>
-          
-          <h1 className="text-4xl md:text-7xl font-bold text-foreground mb-6">
-            Become a
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-green ml-3">
-              Volunteer
-            </span>
+      <section className="relative py-12 bg-gradient-to-br from-primary/5 to-accent-green/5 overflow-hidden">
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-2xl md:text-3xl font-medium text-foreground mb-3 font-[Noto_Sans_Bengali]">
+            স্বেচ্ছাসেবক হন
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12">
-            Join our community of passionate changemakers and help build a better Bangladesh 
-            through education, environmental conservation, and community development.
+          <p className="text-sm md:text-base text-muted-foreground max-w-3xl mx-auto mb-8 font-[Noto_Sans_Bengali]">
+            শিক্ষা, পরিবেশ সংরক্ষণ এবং কমিউনিটি উন্নয়নের মাধ্যমে একটি উন্নত বাংলাদেশ গড়তে আমাদের সাথে যোগ দিন
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button 
-                variant="volunteer" 
-                size="xl" 
-                className="group min-w-[250px] text-lg shadow-lg hover:shadow-xl"
-                onClick={() => {
-                  // Create embedded form container
-                  const formContainer = document.createElement('div');
-                  formContainer.innerHTML = `
-                    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                      <div style="background: white; border-radius: 12px; width: 100%; max-width: 800px; height: 90vh; position: relative;">
-                        <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: 15px; right: 15px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;">×</button>
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdYourVolunteerFormId/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 12px;">Loading...</iframe>
-                      </div>
-                    </div>
-                  `;
-                  document.body.appendChild(formContainer);
-                }}
-              >
-                স্বেচ্ছাসেবক আবেদন
-                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
-              </Button>
-            
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              variant="outline" 
-              size="xl" 
-              className="group min-w-[250px] text-lg border-2"
+              variant="volunteer" 
+              size="default" 
+              className="group font-[Noto_Sans_Bengali]"
+              onClick={() => {
+                // Create embedded form container
+                const formContainer = document.createElement('div');
+                formContainer.innerHTML = `
+                  <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <div style="background: white; border-radius: 12px; width: 100%; max-width: 800px; height: 90vh; position: relative;">
+                      <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: 15px; right: 15px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;">×</button>
+                      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdYourVolunteerFormId/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 12px;">Loading...</iframe>
+                    </div>
+                  </div>
+                `;
+                document.body.appendChild(formContainer);
+              }}
             >
-              Learn More
-              <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+              আবেদন করুন
+              <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </Button>
-          </div>
-          
-          {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">500+</div>
-              <div className="text-muted-foreground">Active Volunteers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent-green mb-2">50+</div>
-              <div className="text-muted-foreground">Projects Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent-orange mb-2">25+</div>
-              <div className="text-muted-foreground">Communities Served</div>
-            </div>
           </div>
         </div>
       </section>

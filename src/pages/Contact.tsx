@@ -6,106 +6,103 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email Us',
+      title: 'ইমেইল',
       primary: 'youthhopebangladesh@gmail.com',
-      description: 'Send us your questions or feedback',
+      description: 'প্রশ্ন বা মতামত পাঠান',
       action: 'mailto:youthhopebangladesh@gmail.com',
       color: 'text-primary',
     },
     {
       icon: Phone,
-      title: 'Call or Mobile Payment',
+      title: 'ফোন/পেমেন্ট',
       primary: '01886959350',
-      description: 'Bkash/Nagad available for donations',
+      description: 'বিকাশ/নগদে দান করুন',
       action: 'tel:+8801886959350',
       color: 'text-accent-green',
     },
     {
       icon: Facebook,
-      title: 'Follow Us',
+      title: 'ফেসবুক',
       primary: 'YouthHopeBD',
-      description: 'Stay updated with our latest activities',
+      description: 'আমাদের কার্যক্রম দেখুন',
       action: 'https://www.facebook.com/YouthHopeBD',
       color: 'text-blue-600',
     },
     {
       icon: MapPin,
-      title: 'Visit Us',
-      primary: 'View Location',
-      description: 'Find us on the map',
+      title: 'ঠিকানা',
+      primary: 'ম্যাপ দেখুন',
+      description: 'আমাদের অবস্থান',
       action: 'https://maps.app.goo.gl/RMYoVJh8Zv34SiY29',
       color: 'text-accent-orange',
     },
   ];
 
   const officeHours = [
-    { day: 'Monday - Thursday', hours: '9:00 AM - 6:00 PM' },
-    { day: 'Friday', hours: '9:00 AM - 5:00 PM' },
-    { day: 'Saturday', hours: '10:00 AM - 4:00 PM' },
-    { day: 'Sunday', hours: 'By Appointment' },
+    { day: 'সোমবার - বৃহস্পতিবার', hours: 'সকাল ৯টা - বিকাল ৬টা' },
+    { day: 'শুক্রবার', hours: 'সকাল ৯টা - বিকাল ৫টা' },
+    { day: 'শনিবার', hours: 'সকাল ১০টা - বিকাল ৪টা' },
+    { day: 'রবিবার', hours: 'পূর্ব নিয়োগে' },
   ];
 
   const faqs = [
     {
-      question: 'How can I volunteer with Youth Hope Bangladesh?',
-      answer: 'You can join us by filling out our volunteer application form. We have various opportunities based on your skills and availability.',
+      question: 'যুব হোপ বাংলাদেশে স্বেচ্ছাসেবক কিভাবে হব?',
+      answer: 'আমাদের স্বেচ্ছাসেবক আবেদন ফর্ম পূরণ করুন। দক্ষতা ও সময়ের ভিত্তিতে বিভিন্ন সুযোগ রয়েছে।',
     },
     {
-      question: 'What are the requirements to volunteer?',
-      answer: 'We welcome volunteers from all backgrounds. The main requirements are enthusiasm, commitment, and a passion for social change.',
+      question: 'স্বেচ্ছাসেবক হতে কী যোগ্যতা লাগে?',
+      answer: 'সব ধরনের মানুষকে স্বাগতম। মূল প্রয়োজন উৎসাহ, প্রতিশ্রুতি এবং সামাজিক পরিবর্তনের আগ্রহ।',
     },
     {
-      question: 'How can I donate to your organization?',
-      answer: 'You can donate through Bkash/Nagad to 01886959350, or contact us for other donation methods including bank transfers.',
+      question: 'কিভাবে দান করব?',
+      answer: '০১৮৮৬৯৫৯৩৫০ নম্বরে বিকাশ/নগদে দান করুন অথবা অন্যান্য পদ্ধতির জন্য যোগাযোগ করুন।',
     },
     {
-      question: 'Do you provide volunteer certificates?',
-      answer: 'Yes, we provide certificates of participation and recognition letters for volunteers who complete our programs.',
+      question: 'স্বেচ্ছাসেবক সনদ পাব?',
+      answer: 'হ্যাঁ, কর্মসূচি সম্পন্নকারী সবাই অংশগ্রহণ সনদ ও সুপারিশপত্র পাবেন।',
     },
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-accent-orange/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Get In
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-orange ml-3">
-                Touch
-              </span>
+      <section className="py-12 bg-gradient-to-br from-primary/5 to-accent-orange/5">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h1 className="text-2xl md:text-3xl font-medium text-foreground mb-3 font-[Noto_Sans_Bengali]">
+              যোগাযোগ
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We'd love to hear from you. Reach out to us for questions, partnerships, or to join our mission.
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto font-[Noto_Sans_Bengali]">
+              প্রশ্ন, অংশীদারিত্ব, বা আমাদের মিশনে যোগদানের জন্য আমাদের সাথে যোগাযোগ করুন
             </p>
           </div>
         </div>
       </section>
 
       {/* Contact Information */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <section className="py-12 bg-background">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
-                <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-0 shadow-md text-center">
-                  <CardHeader className="pb-4">
-                    <div className="bg-muted rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/10 transition-colors">
-                      <Icon className={`h-8 w-8 ${info.color}`} />
+                <Card key={index} className="group hover:shadow-md transition-all duration-300 border text-center">
+                  <CardHeader className="pb-3">
+                    <div className="bg-muted rounded-lg w-12 h-12 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/10 transition-colors">
+                      <Icon className={`h-6 w-6 ${info.color}`} />
                     </div>
-                    <CardTitle className="text-xl font-bold">{info.title}</CardTitle>
+                    <CardTitle className="text-base font-medium font-[Noto_Sans_Bengali]">{info.title}</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-muted-foreground text-sm">{info.description}</p>
+                  <CardContent className="space-y-3">
+                    <p className="text-muted-foreground text-xs font-[Noto_Sans_Bengali]">{info.description}</p>
                     <Button 
                       variant="outline" 
-                      className="w-full group/btn"
+                      size="sm"
+                      className="w-full text-xs font-[Noto_Sans_Bengali]"
                       onClick={() => window.open(info.action, '_blank')}
                     >
                       {info.primary}
-                      <Send className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </Button>
                   </CardContent>
                 </Card>

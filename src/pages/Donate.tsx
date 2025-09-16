@@ -102,32 +102,23 @@ const Donate = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-accent-orange/20 to-primary/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="mb-8">
-              <Badge className="bg-accent-orange/10 text-accent-orange border-accent-orange/20 text-lg px-4 py-2">
-                Your Donation Makes a Difference
-              </Badge>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Support Our
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-primary ml-3">
-                Mission
-              </span>
+      <section className="py-12 bg-gradient-to-br from-accent-orange/5 to-primary/5">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h1 className="text-2xl md:text-3xl font-medium text-foreground mb-3 font-[Noto_Sans_Bengali]">
+              দান করুন
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12">
-              Help us continue our work in education, environmental conservation, and community development 
-              across Bangladesh. Every donation, no matter the size, creates lasting impact.
+            <p className="text-sm md:text-base text-muted-foreground max-w-3xl mx-auto mb-8 font-[Noto_Sans_Bengali]">
+              শিক্ষা, পরিবেশ সংরক্ষণ এবং কমিউনিটি উন্নয়নে আমাদের কাজ চালিয়ে যেতে সাহায্য করুন। 
+              প্রতিটি দান স্থায়ী প্রভাব সৃষ্টি করে
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 variant="donate" 
-                size="xl" 
-                className="group min-w-[250px] text-lg shadow-lg hover:shadow-xl"
+                size="default" 
+                className="group font-[Noto_Sans_Bengali]"
                 onClick={() => {
                   // Create embedded form container
                   const formContainer = document.createElement('div');
@@ -143,16 +134,7 @@ const Donate = () => {
                 }}
               >
                 দান করুন
-                <Heart className="ml-2 h-6 w-6 transition-transform group-hover:scale-110" />
-              </Button>
-              
-              <Button 
-                variant="outline" 
-                size="xl" 
-                className="group min-w-[250px] text-lg border-2"
-              >
-                Learn About Impact
-                <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+                <Heart className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:scale-110" />
               </Button>
             </div>
           </div>
