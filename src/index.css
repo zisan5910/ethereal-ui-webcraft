@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Youth Hope Bangladesh Design System - Hopeful, energetic, trustworthy colors */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Base colors - Clean white background */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    /* Popover system */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Brand Colors - Bright and hopeful */
+    --primary: 217 91% 60%; /* Bright blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 217 91% 70%;
+    --primary-dark: 217 91% 50%;
+
+    /* Secondary brand colors */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Accent colors - Orange and Green */
+    --accent-orange: 20 91% 55%; /* Energetic orange */
+    --accent-orange-foreground: 0 0% 100%;
+    --accent-green: 142 71% 45%; /* Vibrant green */
+    --accent-green-foreground: 0 0% 100%;
+
+    /* Neutral system */
+    --muted: 215 28% 97%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Interactive states */
+    --border: 215 28% 92%;
+    --input: 215 28% 92%;
+    --ring: 217 91% 60%;
+
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 58%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%), hsl(20 91% 55%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(215 28% 97%));
+    --gradient-cta: linear-gradient(135deg, hsl(20 91% 55%), hsl(45 93% 58%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(215 28% 92% / 0.5);
+    --shadow-md: 0 4px 6px -1px hsl(215 28% 92% / 0.3), 0 2px 4px -1px hsl(215 28% 92% / 0.2);
+    --shadow-lg: 0 10px 15px -3px hsl(215 28% 92% / 0.3), 0 4px 6px -2px hsl(215 28% 92% / 0.2);
+    --shadow-hero: 0 25px 50px -12px hsl(217 91% 60% / 0.4);
+
+    /* Layout */
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 0 0% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 70%;
+    --primary-foreground: 222 47% 11%;
+    --primary-light: 217 91% 80%;
+    --primary-dark: 217 91% 60%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent-orange: 20 91% 65%;
+    --accent-orange-foreground: 0 0% 100%;
+    --accent-green: 142 71% 55%;
+    --accent-green-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 55%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 68%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 70%;
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 224 76% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 217 91% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
