@@ -1,14 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html lang="bn">
   <head>
     <meta name="google-site-verification" content="A0IVSpMPJp31gNQG5Y2TinipS6zarnk0EssxWAPG5So" />
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="https://i.postimg.cc/2yNN1xPC/Whats-App-Image-2025-05-09-at-23-53-43-b80f4177.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Youth Hope Bangladesh</title>
+    <meta name="description" content="যুব হোপ বাংলাদেশ - তরুণদের ক্ষমতায়ন ও আশার নির্মাণে প্রতিশ্রুতিবদ্ধ সংস্থা" />
+    <title>যুব হোপ বাংলাদেশ - Youth Hope Bangladesh</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#3b82f6" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Register service worker for offline support
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

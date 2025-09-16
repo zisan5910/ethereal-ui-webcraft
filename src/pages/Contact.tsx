@@ -129,29 +129,35 @@ const Contact = () => {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-gradient-to-r from-primary/10 to-accent-orange/10 rounded-lg p-8 text-center">
-                    <div className="mb-6">
-                      <Send className="h-16 w-16 text-primary mx-auto mb-4" />
-                      <h3 className="text-2xl font-bold text-foreground mb-2">Contact Form</h3>
-                      <p className="text-muted-foreground">
-                        Click the button below to open our contact form and send us your message.
-                      </p>
-                    </div>
-                    
-                    <Button 
-                      variant="default" 
-                      size="lg" 
-                      className="group"
-                      onClick={() => window.open('https://forms.google.com/your-contact-form', '_blank')}
-                    >
-                      Open Contact Form
-                      <Send className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                    
-                    <p className="text-sm text-muted-foreground mt-4">
-                      The form will open in a new tab for your convenience.
-                    </p>
-                  </div>
+          <div className="bg-gradient-to-r from-primary/10 to-accent-orange/10 rounded-lg p-8 text-center">
+            <div className="mb-6">
+              <Send className="h-16 w-16 text-primary mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-foreground mb-2">যোগাযোগ ফর্ম</h3>
+              <p className="text-muted-foreground">
+                আমাদের সাথে যোগাযোগ করতে নিচের ফর্মটি পূরণ করুন।
+              </p>
+            </div>
+            
+            {/* Embedded Form */}
+            <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg">
+              <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdYourFormId/viewform?embedded=true"
+                width="100%" 
+                height="100%"
+                frameBorder="0" 
+                marginHeight={0}
+                marginWidth={0}
+                className="w-full h-full"
+                title="Contact Form"
+              >
+                Loading...
+              </iframe>
+            </div>
+            
+            <p className="text-sm text-muted-foreground mt-4">
+              ফর্ম লোড না হলে <a href="https://forms.google.com/your-contact-form" target="_blank" rel="noopener noreferrer" className="text-primary underline">এখানে ক্লিক করুন</a>।
+            </p>
+          </div>
                 </CardContent>
               </Card>
             </div>
@@ -239,20 +245,33 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="bg-card rounded-2xl p-8 shadow-lg text-center">
+          <div className="bg-card rounded-2xl p-8 shadow-lg">
             <MapPin className="h-16 w-16 text-accent-orange mx-auto mb-6" />
-            <h3 className="text-2xl font-bold text-foreground mb-4">Our Location</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">আমাদের অবস্থান</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              We operate across multiple locations in Bangladesh. Click below to view our main office location and 
-              the areas where our programs are active.
+              বগুড়া, বাংলাদেশে আমাদের প্রধান কার্যালয় অবস্থিত। নিচের মানচিত্রে আমাদের অবস্থান দেখুন।
             </p>
+            
+            {/* Google Maps Embed */}
+            <div className="w-full rounded-lg overflow-hidden shadow-lg mb-6">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115860.77945582692!2d89.287835854917!3d24.841662159966887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fc54e7e81df441%3A0x27133ed921fe73f4!2sBogura!5e0!3m2!1sen!2sbd!4v1758002201402!5m2!1sen!2sbd" 
+                width="100%" 
+                height="400" 
+                style={{border:0}} 
+                allowFullScreen={true}
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Youth Hope Bangladesh Location"
+              />
+            </div>
             
             <Button 
               variant="default" 
               size="lg"
               onClick={() => window.open('https://maps.app.goo.gl/RMYoVJh8Zv34SiY29', '_blank')}
             >
-              View on Google Maps
+              গুগল ম্যাপে দেখুন
               <MapPin className="ml-2 h-5 w-5" />
             </Button>
           </div>

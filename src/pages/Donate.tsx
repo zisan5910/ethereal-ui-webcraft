@@ -127,10 +127,22 @@ const Donate = () => {
               <Button 
                 variant="donate" 
                 size="xl" 
-                className="group min-w-[250px] text-lg"
-                onClick={() => window.open('https://forms.google.com/your-donation-form', '_blank')}
+                className="group min-w-[250px] text-lg shadow-lg hover:shadow-xl"
+                onClick={() => {
+                  // Create embedded form container
+                  const formContainer = document.createElement('div');
+                  formContainer.innerHTML = `
+                    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                      <div style="background: white; border-radius: 12px; width: 100%; max-width: 800px; height: 90vh; position: relative;">
+                        <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: 15px; right: 15px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;">×</button>
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdYourDonationFormId/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 12px;">Loading...</iframe>
+                      </div>
+                    </div>
+                  `;
+                  document.body.appendChild(formContainer);
+                }}
               >
-                Donate Now
+                দান করুন
                 <Heart className="ml-2 h-6 w-6 transition-transform group-hover:scale-110" />
               </Button>
               

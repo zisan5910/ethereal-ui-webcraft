@@ -1,0 +1,22 @@
+{
+  "name": "যুব হোপ বাংলাদেশ - Youth Hope Bangladesh",
+  "short_name": "Youth Hope BD",
+  "description": "তরুণদের ক্ষমতায়ন ও আশার নির্মাণে প্রতিশ্রুতিবদ্ধ সংস্থা",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/2yNN1xPC/Whats-App-Image-2025-05-09-at-23-53-43-b80f4177.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.postimg.cc/2yNN1xPC/Whats-App-Image-2025-05-09-at-23-53-43-b80f4177.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
